@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица случайных цветов</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 90px;
+            height: 50px;
+            border: 1px solid black;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Таблица случайных цветов</h2>
+
+    <table id="colorTable"></table>
+
+    <script>
+        const table = document.getElementById("colorTable");
+
+        for (let i = 0; i < 10; i++) {
+            let row = document.createElement("tr");
+
+            for (let j = 0; j < 10; j++) {
+                let cell = document.createElement("td");
+
+                let r = Math.round(255 * Math.random()).toString(16).padStart(2, "0");
+                let g = Math.round(255 * Math.random()).toString(16).padStart(2, "0");
+                let b = Math.round(255 * Math.random()).toString(16).padStart(2, "0");
+
+                let color = "#" + r + g + b;
+
+                cell.setAttribute("bgcolor", color);
+                cell.textContent = color;
+
+                row.appendChild(cell);
+            }
+
+            table.appendChild(row);
+        }
+    </script>
+
+</body>
+</html>
+
